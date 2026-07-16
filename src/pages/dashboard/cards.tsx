@@ -5,7 +5,6 @@ import { observer } from 'mobx-react-lite';
 import GoogleDrive from '@/components/load-modal/google-drive';
 import Dialog from '@/components/shared_ui/dialog';
 import MobileFullPageModal from '@/components/shared_ui/mobile-full-page-modal';
-import Text from '@/components/shared_ui/text';
 import { DBOT_TABS } from '@/constants/bot-contents';
 import { useStore } from '@/hooks/useStore';
 import {
@@ -15,7 +14,8 @@ import {
     DerivLightMyComputerIcon,
     DerivLightQuickStrategyIcon,
 } from '@deriv/quill-icons/Illustration';
-import { Localize, localize } from '@deriv-com/translations';
+import { localize } from '@deriv-com/translations';
+ls.husky;
 import { useDevice } from '@deriv-com/ui';
 import { rudderStackSendOpenEvent } from '../../analytics/rudderstack-common-events';
 import { rudderStackSendDashboardClickEvent } from '../../analytics/rudderstack-dashboard';
@@ -56,11 +56,16 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
         {
             id: 'my-computer',
             icon: is_mobile ? (
-                <DerivLightLocalDeviceIcon height='48px' width='48px' />
+                <DerivLightLocalDeviceIcon height='42px' width='42px' />
             ) : (
-                <DerivLightMyComputerIcon height='48px' width='48px' />
+                <DerivLightMyComputerIcon height='42px' width='42px' />
             ),
-            content: is_mobile ? <Localize i18n_default_text='Local' /> : <Localize i18n_default_text='My computer' />,
+            content: (
+                <>
+                    <h4>Upload Bot</h4>
+                    <p>Import an XML bot from your computer</p>
+                </>
+            ),
             callback: () => {
                 openFileLoader();
                 rudderStackSendOpenEvent({
@@ -71,10 +76,16 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
                 });
             },
         },
+
         {
             id: 'google-drive',
-            icon: <DerivLightGoogleDriveIcon height='48px' width='48px' />,
-            content: <Localize i18n_default_text='Google Drive' />,
+            icon: <DerivLightGoogleDriveIcon height='42px' width='42px' />,
+            content: (
+                <>
+                    <h4>Google Drive</h4>
+                    <p>Import your saved trading bot</p>
+                </>
+            ),
             callback: () => {
                 openGoogleDriveDialog();
                 rudderStackSendOpenEvent({
@@ -85,10 +96,16 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
                 });
             },
         },
+
         {
             id: 'bot-builder',
-            icon: <DerivLightBotBuilderIcon height='48px' width='48px' />,
-            content: <Localize i18n_default_text='Bot builder' />,
+            icon: <DerivLightBotBuilderIcon height='42px' width='42px' />,
+            content: (
+                <>
+                    <h4>Bot Builder</h4>
+                    <p>Create your own trading bot visually</p>
+                </>
+            ),
             callback: () => {
                 setActiveTab(DBOT_TABS.BOT_BUILDER);
                 rudderStackSendDashboardClickEvent({
@@ -97,13 +114,20 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
                 });
             },
         },
+
         {
             id: 'quick-strategy',
-            icon: <DerivLightQuickStrategyIcon height='48px' width='48px' />,
-            content: <Localize i18n_default_text='Quick strategy' />,
+            icon: <DerivLightQuickStrategyIcon height='42px' width='42px' />,
+            content: (
+                <>
+                    <h4>Quick Strategy</h4>
+                    <p>Generate a ready-made strategy instantly</p>
+                </>
+            ),
             callback: () => {
                 setActiveTab(DBOT_TABS.BOT_BUILDER);
                 setFormVisibility(true);
+
                 rudderStackSendOpenEvent({
                     subpage_name: 'bot_builder',
                     subform_source: 'dashboard',
@@ -112,7 +136,6 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
             },
         },
     ];
-
     return React.useMemo(
         () => (
             <div
@@ -120,71 +143,54 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
                     'tab__dashboard__table--minimized': has_dashboard_strategies && is_mobile,
                 })}
             >
-                <div
-                    className={classNames('tab__dashboard__table__tiles', {
-                        'tab__dashboard__table__tiles--minimized': has_dashboard_strategies && is_mobile,
-                    })}
-                    id='tab__dashboard__table__tiles'
-                >
-                    {actions.map(icons => {
-                        const { icon, content, callback, id } = icons;
-                        return (
-                            <div
-                                key={id}
-                                className={classNames('tab__dashboard__table__block', {
-                                    'tab__dashboard__table__block--minimized': has_dashboard_strategies && is_mobile,
-                                })}
-                            >
-                                <div
-                                    className={classNames('tab__dashboard__table__images', {
-                                        'tab__dashboard__table__images--minimized': has_dashboard_strategies,
-                                    })}
-                                    width='8rem'
-                                    height='8rem'
-                                    icon={icon}
-                                    id={id}
-                                    onClick={() => {
-                                        callback();
-                                    }}
-                                >
-                                    {icon}
-                                </div>
-                                <Text color='prominent' size={is_mobile ? 'xxs' : 'xs'}>
-                                    {content}
-                                </Text>
-                            </div>
-                        );
-                    })}
+                <div className='dopra-actions'>
+                    <div className='dopra-section-title'>QUICK ACTIONS</div>
 
-                    {!isDesktop ? (
-                        <Dialog
-                            title={dialog_options.title}
-                            is_visible={is_dialog_open}
-                            onCancel={onCloseDialog}
-                            is_mobile_full_width
-                            className='dc-dialog__wrapper--google-drive'
-                            has_close_icon
-                        >
-                            <GoogleDrive />
-                        </Dialog>
-                    ) : (
-                        <MobileFullPageModal
-                            is_modal_open={is_dialog_open}
-                            className='load-strategy__wrapper'
-                            header={localize('Load strategy')}
-                            onClickClose={() => {
-                                setPreviewOnPopup(false);
-                                onCloseDialog();
-                            }}
-                            height_offset='80px'
-                            page_overlay
-                        >
-                            <div label='Google Drive' className='google-drive-label'>
+                    <div className='dopra-action-grid'>
+                        {actions.map(icons => {
+                            const { icon, content, callback, id } = icons;
+                            return (
+                                <div key={id} className={`dopra-card ${id}`} onClick={callback}>
+                                    <div className='dopra-card__icon'>{icon}</div>
+
+                                    <div className='dopra-card__content'>{content}</div>
+
+                                    <div className='dopra-card__link'>Open →</div>
+                                </div>
+                            );
+                        })}
+
+                        {!isDesktop ? (
+                            <Dialog
+                                title={dialog_options.title}
+                                is_visible={is_dialog_open}
+                                onCancel={onCloseDialog}
+                                is_mobile_full_width
+                                className='dc-dialog__wrapper--google-drive'
+                                has_close_icon
+                            >
                                 <GoogleDrive />
-                            </div>
-                        </MobileFullPageModal>
-                    )}
+                            </Dialog>
+                        ) : (
+                            <MobileFullPageModal
+                                is_modal_open={is_dialog_open}
+                                className='load-strategy__wrapper'
+                                header={localize('Load strategy')}
+                                onClickClose={() => {
+                                    setPreviewOnPopup(false);
+                                    onCloseDialog();
+                                }}
+                                height_offset='80px'
+                                page_overlay
+                            >
+                                <div label='Google Drive' className='google-drive-label'>
+                                    <GoogleDrive />
+                                </div>
+                            </MobileFullPageModal>
+                        )}
+                    </div>
                 </div>
+
                 <DashboardBotList />
             </div>
         ),
