@@ -15,7 +15,6 @@ import {
     DerivLightQuickStrategyIcon,
 } from '@deriv/quill-icons/Illustration';
 import { localize } from '@deriv-com/translations';
-ls.husky;
 import { useDevice } from '@deriv-com/ui';
 import { rudderStackSendOpenEvent } from '../../analytics/rudderstack-common-events';
 import { rudderStackSendDashboardClickEvent } from '../../analytics/rudderstack-dashboard';

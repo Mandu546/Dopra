@@ -35,14 +35,23 @@
     --text-align-right: right;
     --text-align-center: center;
 
-    // Brand primary colors
+    // ===============================
+    // DOPRA BRAND COLORS
+    // ===============================
+
     --brand-white: #{constants.$color-white};
     --brand-dark-grey: #{constants.$color-black};
-    --brand-red-coral: #{constants.$color-red};
-    --brand-orange: #{constants.$color-orange};
+    --brand-primary: #{constants.$color-blue};
+    --brand-primary-dark: #{constants.$color-blue-4};
+    --brand-secondary: #{constants.$color-green-3};
+    --brand-success: #{constants.$color-green-6};
+    --brand-warning: #{constants.$color-yellow};
+    --brand-danger: #{constants.$color-red};
+    --brand-accent: #{constants.$color-purple};
 
-    // Brand secondary colors
-    --brand-secondary: #{constants.$color-green};
+    // Backward compatibility
+    --brand-red-coral: var(--brand-primary);
+    --brand-orange: var(--brand-warning);
 
     // App Cards gradient background
     --app-card-virtual: #{constants.$gradient-virtual};
@@ -52,290 +61,362 @@
     --tw-border-opacity: 1;
 
     .theme--light {
-        // General
+        // ==========================
+        // GENERAL
+        // ==========================
         --general-main-1: #{constants.$color-white};
-        --general-main-2: #{constants.$color-white};
-        --general-main-3: #{constants.$color-grey-1};
+        --general-main-2: #f8fbff;
+        --general-main-3: #eef5fb;
         --general-main-4: #{constants.$alpha-color-white-4};
-        --general-section-1: #{constants.$color-grey-2};
-        --general-section-2: #{constants.$color-grey-2};
-        --general-section-3: #{constants.$color-grey-11};
-        --general-section-4: #{constants.$color-grey-12};
-        --general-section-5: #{constants.$color-grey-2};
-        --general-section-6: #{constants.$color-grey-2};
-        --general-disabled: #{constants.$color-grey-3};
-        --general-hover: #{constants.$color-grey-4};
-        --general-active: #{constants.$color-grey-5};
+        --general-section-1: #fff;
+        --general-section-2: #f6f9fc;
+        --general-section-3: #eef5fb;
+        --general-section-4: #e7f0f8;
+        --general-section-5: #fff;
+        --general-section-6: #f5f9fc;
+        --general-disabled: #dce5ec;
+        --general-hover: #edf5fb;
+        --general-active: #dde9f3;
 
-        // Icons and Texts
-        --text-general: #{constants.$color-black-1};
-        --text-primary: #{constants.$color-grey-1};
-        --text-less-prominent: #{constants.$color-grey-1};
-        --text-prominent: #{constants.$color-black-1};
-        --text-disabled: #{constants.$color-grey-1};
-        --text-disabled-1: #{constants.$color-grey-6};
-        --text-loss-danger: #{constants.$color-red-1};
-        --text-profit-success: #{constants.$color-green-1};
+        // ==========================
+        // TEXT & ICONS
+        // ==========================
+        --text-general: #182533;
+        --text-primary: #425466;
+        --text-less-prominent: #6d7f92;
+        --text-prominent: #071a2d;
+        --text-disabled: #a8b6c5;
+        --text-disabled-1: #c1ccd6;
+        --text-loss-danger: #{constants.$color-red};
+        --text-profit-success: #{constants.$color-green-6};
         --text-warning: #{constants.$color-yellow};
         --text-red: #{constants.$color-red};
         --text-green: #{constants.$color-green-6};
-        --text-blue: #{constants.$color-blue-3};
+        --text-blue: #{constants.$color-blue};
         --text-info-blue: #{constants.$color-blue};
-        --text-info-blue-background: #{constants.$color-blue-5};
+        --text-info-blue-background: #eaf5ff;
         --text-colored-background: #{constants.$color-white};
-        --icon-light-background: #{constants.$color-black-9};
+        --icon-light-background: #4d6277;
         --icon-dark-background: #{constants.$color-white};
-        --icon-grey-background: #{constants.$color-grey-2};
-        --icon-black-plus: #{constants.$color-black-7};
+        --icon-grey-background: #edf4fb;
+        --icon-black-plus: #13283f;
         --text-status-info-blue: #{constants.$color-blue};
-        --text-hint: #{constants.$color-black-1};
+        --text-hint: #5f7387;
 
-        // Purchase
-        --purchase-main-1: #{constants.$color-green-1};
-        --purchase-section-1: #{constants.$color-green-2};
-        --purchase-main-2: #{constants.$color-red-1};
-        --purchase-section-2: #{constants.$color-red-4};
-        --purchase-disabled-main: #{constants.$color-grey-3};
-        --purchase-disabled-section: #{constants.$color-grey-4};
+        // ==========================
+        // PURCHASE
+        // ==========================
+        --purchase-main-1: #{constants.$color-green-6};
+        --purchase-section-1: #{constants.$color-green-3};
+        --purchase-main-2: #{constants.$color-red};
+        --purchase-section-2: #{constants.$color-red-2};
+        --purchase-disabled-main: #c9d5df;
+        --purchase-disabled-section: #e8eef4;
 
-        // Buttons
-        --button-primary-default: var(--brand-red-coral);
-        --button-secondary-default: #{constants.$color-grey-1};
+        // ==========================
+        // BUTTONS
+        // ==========================
+        --button-primary-default: var(--brand-primary);
+        --button-secondary-default: #435467;
         --button-tertiary-default: transparent;
-        --button-primary-light-default: #{constants.$alpha-color-red-2};
-        --button-primary-hover: #{constants.$color-red-5};
-        --button-secondary-hover: #{constants.$alpha-color-black-3};
-        --button-tertiary-hover: #{constants.$alpha-color-red-1};
-        --button-primary-light-hover: #{constants.$alpha-color-red-3};
-        --button-toggle-primary: #{constants.$color-blue-3};
-        --button-toggle-secondary: #{constants.$color-grey-5};
+        --button-primary-light-default: #{constants.$alpha-color-blue-2};
+        --button-primary-hover: #{constants.$color-blue-4};
+        --button-secondary-hover: rgb(20 60 100 / 8%);
+        --button-tertiary-hover: rgb(0 140 255 / 8%);
+        --button-primary-light-hover: #{constants.$alpha-color-blue-1};
+        --button-toggle-primary: #{constants.$color-blue};
+        --button-toggle-secondary: #dfe8ef;
         --button-toggle-alternate: #{constants.$color-white};
 
-        // Overlay
-        --overlay-outside-dialog: #{constants.$alpha-color-black-1};
-        --overlay-inside-dialog: #{constants.$alpha-color-white-1};
+        // ==========================
+        // OVERLAY
+        // ==========================
+        --overlay-outside-dialog: rgb(8 19 33 / 35%);
+        --overlay-inside-dialog: rgb(255 255 255 / 95%);
 
-        // Shadow
-        --shadow-menu: #{constants.$alpha-color-black-4};
-        --shadow-menu-2: #{constants.$alpha-color-black-4};
-        --shadow-drop: #{constants.$alpha-color-black-3};
-        --shadow-box: #{constants.$COLOR_LIGHT_BLACK_2};
+        // ==========================
+        // SHADOW
+        // ==========================
+        --shadow-menu: rgb(15 35 60 / 12%);
+        --shadow-menu-2: rgb(15 35 60 / 8%);
+        --shadow-drop: rgb(15 35 60 / 18%);
+        --shadow-box: rgb(16 35 60 / 10%);
 
-        // States
-        --state-normal: #{constants.$color-white};
-        --state-hover: #{constants.$color-grey-4};
-        --state-active: #{constants.$color-grey-5};
-        --state-disabled: #{constants.$color-grey-3};
-        --checkbox-disabled-grey: #{constants.$color-grey-6};
-        --sidebar-tab: #{constants.$color-grey-6};
+        // ==========================
+        // STATES
+        // ==========================
+        --state-normal: #fff;
+        --state-hover: #edf5fb;
+        --state-active: #dde9f3;
+        --state-disabled: #d9e3ec;
+        --checkbox-disabled-grey: #b7c3cf;
+        --sidebar-tab: #c4d0da;
 
-        // Border
-        --border-normal: #{constants.$color-grey-5};
-        --border-normal-1: #{constants.$color-grey-5};
-        --border-normal-2: #{constants.$color-grey-5};
-        --border-normal-3: #{constants.$color-grey-6};
-        --border-hover: #{constants.$color-grey-1};
-        --border-hover-1: #{constants.$color-black-9};
-        --border-active: var(--brand-secondary);
-        --border-disabled: #{constants.$color-grey-3};
-        --border-divider: #{constants.$color-grey-2};
+        // ==========================
+        // BORDER
+        // ==========================
+        --border-normal: #d7e2eb;
+        --border-normal-1: #d7e2eb;
+        --border-normal-2: #d7e2eb;
+        --border-normal-3: #c6d3df;
+        --border-hover: #{constants.$color-blue};
+        --border-hover-1: #{constants.$color-blue-4};
+        --border-active: var(--brand-primary);
+        --border-disabled: #dde5ec;
+        --border-divider: #edf3f8;
 
-        // Fill
-        --fill-normal: #{constants.$color-white};
-        --fill-normal-1: #{constants.$color-grey};
-        --fill-hover: #{constants.$color-grey-1};
-        --fill-active: var(--brand-secondary);
-        --fill-disabled: #{constants.$color-grey-3};
+        // ==========================
+        // FILL
+        // ==========================
+        --fill-normal: #fff;
+        --fill-normal-1: #edf5fb;
+        --fill-hover: #dde9f4;
+        --fill-active: var(--brand-primary);
+        --fill-disabled: #d9e3ec;
 
-        // Status
-        --status-default: #{constants.$color-grey-3};
-        --status-adjustment: #{constants.$color-grey-1};
-        --status-danger: #{constants.$color-red-1};
-        --status-success: #{constants.$color-green-1};
+        // ==========================
+        // STATUS
+        // ==========================
+        --status-default: #dfe7ef;
+        --status-adjustment: #7d8d9d;
+        --status-danger: #{constants.$color-red};
+        --status-success: #{constants.$color-green-6};
         --status-warning: #{constants.$color-yellow};
         --status-warning-transparent: #{constants.$alpha-color-yellow-1};
-        --status-transfer: #{constants.$color-orange};
+        --status-transfer: #{constants.$color-purple};
         --status-info: #{constants.$color-blue};
-        --status-colored-background: #{constants.$color-white};
-        --status-alert-background: #{constants.$color-yellow-3};
+        --status-colored-background: #fff;
+        --status-alert-background: rgb(255 173 58 / 14%);
 
-        // Dashboard
-        --dashboard-swap-free: #{constants.$gradient-color-black-3};
+        // ==========================
+        // DASHBOARD
+        // ==========================
+        --dashboard-swap-free: #{constants.$gradient-color-blue};
         --dashboard-app: #{constants.$gradient-color-black-4};
 
-        // Transparentize
+        // ==========================
+        // TRANSPARENCY
+        // ==========================
         --transparent-success: #{constants.$alpha-color-green-1};
         --transparent-info: #{constants.$alpha-color-blue-1};
         --transparent-hint: #{constants.$alpha-color-blue-3};
         --transparent-danger: #{constants.$alpha-color-red-2};
-        --transparent-correct-message: #{constants.$color-green-5};
-        --transparent-fake-message: #{constants.$color-red-6};
+        --transparent-correct-message: rgb(0 212 170 / 14%);
+        --transparent-fake-message: rgb(255 68 79 / 14%);
 
-        // Gradient
-        --gradient-success: #{constants.$gradient-color-green-1};
-        --gradient-danger: #{constants.$gradient-color-red-1};
+        // ==========================
+        // GRADIENTS
+        // ==========================
+        --gradient-success: #{constants.$gradient-color-green-3};
+        --gradient-danger: #{constants.$gradient-color-red-2};
         --contract-gradient-danger: #{constants.$contract-gradient-color-red-1};
         --gradient-right-edge: #{constants.$gradient-color-white};
-        --gradient-blue: #{constants.$gradient-color-blue-5};
+        --gradient-blue: #{constants.$gradient-color-blue};
         --gradient-gold: #{constants.$gradient-color-gold};
-        --gradient-green: #{constants.$gradient-color-green-4};
+        --gradient-green: #{constants.$gradient-color-green-3};
 
-        // Badge
-        --badge-white: #{constants.$color-white};
-        --badge-blue: #{constants.$color-blue-4};
-        --badge-violet: #{constants.$color-blue-2};
-        --badge-green: #{constants.$color-green-3};
+        // ==========================
+        // BADGES
+        // ==========================
+        --badge-white: #fff;
+        --badge-blue: #{constants.$color-blue};
+        --badge-violet: #{constants.$color-purple};
+        --badge-green: #{constants.$color-green-6};
 
-        // TradersHub Banner
-        --traders-hub-banner-border-color: #{constants.$color-grey-4};
+        // ==========================
+        // BANNER
+        // ==========================
+        --traders-hub-banner-border-color: #dbe5ee;
 
-        // Demo view
-        --demo-text-color-1: #{constants.$color-grey};
-        --demo-text-color-2: #{constants.$color-white};
+        // ==========================
+        // DEMO
+        // ==========================
+        --demo-text-color-1: #63788d;
+        --demo-text-color-2: #fff;
 
-        // Header
-        --header-background-mt5: #{constants.$color-blue-8};
-        --header-background-others: #{constants.$color-green-7};
+        // ==========================
+        // HEADER
+        // ==========================
+        --header-background-mt5: #edf7ff;
+        --header-background-others: #eefcf8;
     }
 
     .theme--dark {
-        // General
-        --general-main-1: #{constants.$color-black};
-        --general-main-2: #{constants.$color-black-3};
-        --general-main-3: #{constants.$color-black-4};
-        --general-main-4: #{constants.$alpha-color-black-7};
-        --general-section-1: #{constants.$color-black-3};
-        --general-section-2: #{constants.$color-black};
-        --general-section-3: #{constants.$color-black-5};
-        --general-section-4: #{constants.$color-black-5};
-        --general-section-5: #{constants.$color-black-5};
-        --general-section-6: #{constants.$color-grey-7};
-        --general-disabled: #{constants.$color-black-4};
-        --general-hover: #{constants.$color-black-5};
-        --general-active: #{constants.$color-black-8};
+        // ==========================
+        // GENERAL
+        // ==========================
+        --general-main-1: #060b14;
+        --general-main-2: #0b1320;
+        --general-main-3: #111d2d;
+        --general-main-4: rgb(8 16 28 / 72%);
+        --general-section-1: #0d1725;
+        --general-section-2: #121e30;
+        --general-section-3: #162436;
+        --general-section-4: #1a2a3d;
+        --general-section-5: #1d3044;
+        --general-section-6: #23374d;
+        --general-disabled: #1c2d40;
+        --general-hover: #22364d;
+        --general-active: #29415c;
 
-        // Icons and Texts
-        --text-prominent: #{constants.$color-white};
-        --text-general: #{constants.$color-grey};
-        --text-less-prominent: #{constants.$color-grey-7};
-        --text-primary: #{constants.$color-grey-1};
-        --text-disabled: #{constants.$color-black-6};
-        --text-disabled-1: #{constants.$color-black-6};
-        --text-profit-success: #{constants.$color-green-3};
-        --text-loss-danger: #{constants.$color-red-2};
+        // ==========================
+        // TEXT & ICONS
+        // ==========================
+        --text-prominent: #fff;
+        --text-general: #d8e6f3;
+        --text-less-prominent: #95aac1;
+        --text-primary: #b8c9d8;
+        --text-disabled: #556b82;
+        --text-disabled-1: #4a6077;
+        --text-profit-success: #{constants.$color-green-6};
+        --text-loss-danger: #{constants.$color-red};
         --text-red: #{constants.$color-red};
-        --text-colored-background: #{constants.$color-white};
-        --text-info-blue: #{constants.$color-blue-6};
-        --text-info-blue-background: #{constants.$color-blue-7};
+        --text-colored-background: #fff;
+        --text-info-blue: #74b6ff;
+        --text-info-blue-background: #13263d;
         --text-status-info-blue: #{constants.$color-blue};
-        --text-hint: #{constants.$color-grey};
-        --icon-light-background: #{constants.$color-black-9};
-        --icon-dark-background: #{constants.$color-white};
-        --icon-grey-background: #{constants.$color-black-1};
-        --icon-black-plus: #{constants.$color-white};
+        --text-hint: #9db2c6;
+        --icon-light-background: #7f96ad;
+        --icon-dark-background: #fff;
+        --icon-grey-background: #213448;
+        --icon-black-plus: #fff;
 
-        // Purchase
-        --purchase-main-1: #{constants.$color-green-3};
-        --purchase-section-1: #{constants.$color-green-4};
-        --purchase-main-2: #{constants.$color-red-2};
-        --purchase-section-2: #{constants.$color-red-3};
-        --purchase-disabled-main: #{constants.$color-black-4};
-        --purchase-disabled-section: #{constants.$color-black};
+        // ==========================
+        // PURCHASE
+        // ==========================
+        --purchase-main-1: #{constants.$color-green-6};
+        --purchase-section-1: #{constants.$color-green-3};
+        --purchase-main-2: #{constants.$color-red};
+        --purchase-section-2: #{constants.$color-red-2};
+        --purchase-disabled-main: #2b3f55;
+        --purchase-disabled-section: #162333;
 
-        // Buttons
-        --button-primary-default: var(--brand-red-coral);
-        --button-secondary-default: #{constants.$color-grey-7};
+        // ==========================
+        // BUTTONS
+        // ==========================
+        --button-primary-default: var(--brand-primary);
+        --button-secondary-default: #7f94ab;
         --button-tertiary-default: transparent;
-        --button-primary-light-default: #{constants.$alpha-color-red-2};
-        --button-primary-hover: #{constants.$color-red-5};
-        --button-secondary-hover: #{constants.$alpha-color-white-3};
-        --button-tertiary-hover: #{constants.$alpha-color-red-1};
-        --button-primary-light-hover: #{constants.$alpha-color-red-3};
-        --button-toggle-primary: #{constants.$color-blue-3};
-        --button-toggle-secondary: #{constants.$color-black-8};
-        --button-toggle-alternate: #{constants.$color-black-8};
-        --button-get-started-bg: #{constants.$color-white};
+        --button-primary-light-default: rgb(42 140 255 / 16%);
+        --button-primary-hover: #4ba4ff;
+        --button-secondary-hover: rgb(255 255 255 / 8%);
+        --button-tertiary-hover: rgb(42 140 255 / 10%);
+        --button-primary-light-hover: rgb(42 140 255 / 24%);
+        --button-toggle-primary: #{constants.$color-blue};
+        --button-toggle-secondary: #26384b;
+        --button-toggle-alternate: #31485f;
+        --button-get-started-bg: #fff;
 
-        // Overlay
-        --overlay-outside-dialog: #{constants.$alpha-color-black-1};
-        --overlay-inside-dialog: #{constants.$alpha-color-black-2};
+        // ==========================
+        // OVERLAY
+        // ==========================
+        --overlay-outside-dialog: rgb(0 0 0 / 65%);
+        --overlay-inside-dialog: rgb(10 20 34 / 96%);
 
-        // Shadow
-        --shadow-menu: #{constants.$alpha-color-black-5};
-        --shadow-menu-2: #{constants.$alpha-color-black-1};
-        --shadow-drop: #{constants.$alpha-color-black-6};
-        --shadow-box: #{constants.$COLOR_DARK_GRAY_3};
+        // ==========================
+        // SHADOW
+        // ==========================
+        --shadow-menu: rgb(0 0 0 / 45%);
+        --shadow-menu-2: rgb(0 0 0 / 60%);
+        --shadow-drop: rgb(0 0 0 / 55%);
+        --shadow-box: rgb(0 0 0 / 35%);
 
-        // States
-        --state-normal: #{constants.$color-black};
-        --state-hover: #{constants.$color-black-5};
-        --state-active: #{constants.$color-black-8};
-        --state-disabled: #{constants.$color-black-4};
-        --checkbox-disabled-grey: #{constants.$color-grey-6};
-        --sidebar-tab: #{constants.$color-grey-7};
+        // ==========================
+        // STATES
+        // ==========================
+        --state-normal: #0b1320;
+        --state-hover: #1a2b3d;
+        --state-active: #23384d;
+        --state-disabled: #162233;
+        --checkbox-disabled-grey: #55697d;
+        --sidebar-tab: #50667b;
 
-        // Border
-        --border-normal: #{constants.$color-black-8};
-        --border-normal-1: #{constants.$color-grey-5};
-        --border-normal-2: #{constants.$color-grey-1};
-        --border-normal-3: #{constants.$color-grey-7};
-        --border-hover: #{constants.$color-grey-7};
-        --border-hover-1: #{constants.$color-black-9};
-        --border-active: var(--brand-secondary);
-        --border-disabled: #{constants.$color-black-4};
-        --border-divider: #{constants.$color-grey-13};
+        // ==========================
+        // BORDER
+        // ==========================
+        --border-normal: #26384c;
+        --border-normal-1: #32475c;
+        --border-normal-2: #47627d;
+        --border-normal-3: #5a7490;
+        --border-hover: #{constants.$color-blue};
+        --border-hover-1: #59a9ff;
+        --border-active: var(--brand-primary);
+        --border-disabled: #1d3042;
+        --border-divider: #203245;
 
-        // Fill
-        --fill-normal: #{constants.$color-black};
-        --fill-normal-1: #{constants.$color-black-1};
-        --fill-hover: #{constants.$color-grey-7};
-        --fill-active: var(--brand-secondary);
-        --fill-disabled: #{constants.$color-black-4};
+        // ==========================
+        // FILL
+        // ==========================
+        --fill-normal: #09111c;
+        --fill-normal-1: #162637;
+        --fill-hover: #20364b;
+        --fill-active: var(--brand-primary);
+        --fill-disabled: #18293a;
 
-        // Status
-        --status-default: #{constants.$color-grey-3};
-        --status-adjustment: #{constants.$color-grey-1};
-        --status-danger: #{constants.$color-red-2};
+        // ==========================
+        // STATUS
+        // ==========================
+        --status-default: #304557;
+        --status-adjustment: #7d95ac;
+        --status-danger: #{constants.$color-red};
         --status-warning: #{constants.$color-yellow};
         --status-warning-transparent: #{constants.$alpha-color-yellow-1};
-        --status-success: #{constants.$color-green-3};
-        --status-transfer: #{constants.$color-orange};
+        --status-success: #{constants.$color-green-6};
+        --status-transfer: #{constants.$color-purple};
         --status-info: #{constants.$color-blue};
-        --status-colored-background: #{constants.$color-white};
-        --status-alert-background: #{constants.$color-yellow-3};
+        --status-colored-background: #fff;
+        --status-alert-background: rgb(255 173 58 / 16%);
 
-        // Transparentize
-        --transparent-success: #{constants.$alpha-color-green-2};
-        --transparent-info: #{constants.$alpha-color-blue-1};
-        --transparent-hint: #{constants.$alpha-color-blue-1};
-        --transparent-danger: #{constants.$alpha-color-red-2};
-        --transparent-correct-message: #{constants.$color-green-5};
-        --transparent-fake-message: #{constants.$color-red-6};
+        // ==========================
+        // TRANSPARENCY
+        // ==========================
+        --transparent-success: rgb(23 234 189 / 16%);
+        --transparent-info: rgb(55 124 252 / 16%);
+        --transparent-hint: rgb(55 124 252 / 12%);
+        --transparent-danger: rgb(255 68 79 / 16%);
+        --transparent-correct-message: rgb(23 234 189 / 14%);
+        --transparent-fake-message: rgb(255 68 79 / 14%);
 
-        // Gradient
-        --gradient-success: #{constants.$gradient-color-green-2};
-        --gradient-danger: #{constants.$gradient-color-red-2};
+        // ==========================
+        // DASHBOARD
+        // ==========================
+        --dashboard-swap-free: #{constants.$gradient-color-black-3};
+        --dashboard-app: #{constants.$gradient-color-blue};
+
+        // ==========================
+        // GRADIENTS
+        // ==========================
+        --gradient-success: #{constants.$gradient-color-green-4};
+        --gradient-danger: #{constants.$gradient-color-red-4};
         --contract-gradient-danger: #{constants.$contract-gradient-color-red-2};
         --gradient-right-edge: #{constants.$gradient-color-black};
-        --gradient-blue: #{constants.$gradient-color-blue-5};
+        --gradient-blue: #{constants.$gradient-color-blue};
         --gradient-gold: #{constants.$gradient-color-gold};
         --gradient-green: #{constants.$gradient-color-green-4};
 
-        // Badge
-        --badge-white: #{constants.$color-white};
-        --badge-blue: #{constants.$color-blue-4};
-        --badge-violet: #{constants.$color-blue-2};
-        --badge-green: #{constants.$color-green-3};
+        // ==========================
+        // BADGES
+        // ==========================
+        --badge-white: #fff;
+        --badge-blue: #{constants.$color-blue};
+        --badge-violet: #{constants.$color-purple};
+        --badge-green: #{constants.$color-green-6};
 
-        // TradersHub Banner
-        --traders-hub-banner-border-color: #{constants.$color-black-5};
+        // ==========================
+        // BANNER
+        // ==========================
+        --traders-hub-banner-border-color: #223446;
 
-        // Demo view
-        --demo-text-color-1: #{constants.$color-black-1};
-        --demo-text-color-2: #{constants.$color-black-1};
+        // ==========================
+        // DEMO
+        // ==========================
+        --demo-text-color-1: #8ca3bb;
+        --demo-text-color-2: #fff;
 
-        // Header
-        --header-background-mt5: #{constants.$color-blue-8};
-        --header-background-others: #{constants.$color-green-7};
+        // ==========================
+        // HEADER
+        // ==========================
+        --header-background-mt5: #10253d;
+        --header-background-others: #0f2f2b;
     }
 }
