@@ -97,7 +97,7 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
         },
 
         {
-            id: 'bot-builder',
+            id: 'bot-editor',
             icon: <DerivLightBotBuilderIcon height='42px' width='42px' />,
             content: (
                 <>

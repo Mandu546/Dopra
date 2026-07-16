@@ -37,10 +37,12 @@ const DashboardComponent = observer(({ handleTabChange }: TMobileIconGuide) => {
                                 'tab__dashboard__header--listed': isDesktop && has_dashboard_strategies,
                             })}
                         >
-                            <div className='dopra-hero'>
-                                <h1 className='dopra-hero__title'>Hello Trader 👋</h1>
+                            <div className='dopra-hero-banner'>
+                                <div className='dopra-hero'>
+                                    <h1 className='dopra-hero__title'>Hello Trader 👋</h1>
 
-                                <p className='dopra-hero__subtitle'>Trade Smarter. Automate Better.</p>
+                                    <p className='dopra-hero__subtitle'>Trade Smarter. Automate Better.</p>
+                                </div>
                             </div>
                         </div>
 
