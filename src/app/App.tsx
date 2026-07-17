@@ -14,6 +14,7 @@ import { initializeI18n, localize, TranslationProvider } from '@deriv-com/transl
 import CoreStoreProvider from './CoreStoreProvider';
 import './app-root.scss';
 
+const Login = lazy(() => import('../pages/login'));
 const Layout = lazy(() => import('../components/layout'));
 const AppRoot = lazy(() => import('./app-root'));
 const FreeBots = lazy(() => import('../pages/free-bots'));
@@ -54,7 +55,8 @@ const router = createBrowserRouter(
             }
         >
             {/* All child routes will be passed as children to Layout */}
-            <Route index element={<AppRoot />} />
+            <Route index element={<Login />} />
+            <Route path='dashboard' element={<AppRoot />} />
             <Route path='endpoint' element={<Endpoint />} />
             <Route path='callback' element={<CallbackPage />} />
             <Route path='free-bots' element={<FreeBots />} />
