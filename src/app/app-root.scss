@@ -1,12 +1,209 @@
 .app-root {
-    height: 100vh;
+    position: relative;
     width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    align-items: center;
+    background: radial-gradient(circle at top, #274b89 0%, #14284c 40%, #0b162c 100%);
+}
 
-    .load-message {
-        margin-top: 6rem;
+/* GRID */
+
+.dopra-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background:
+        repeating-linear-gradient(90deg, transparent 0, transparent 78px, rgb(255 255 255) 79px),
+        repeating-linear-gradient(0deg, transparent 0, transparent 78px, rgb(255 255 255) 79px);
+}
+
+/* FLOATING ORBS */
+
+.dopra-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float-orb 8s ease-in-out infinite;
+}
+
+.dopra-orb--one {
+    width: 350px;
+    height: 350px;
+    background: rgb(255 123 47 / 20%);
+    top: 10%;
+    left: 20%;
+}
+
+.dopra-orb--two {
+    width: 420px;
+    height: 420px;
+    background: rgb(72 122 255 / 18%);
+    bottom: 5%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+/* MAIN CARD */
+
+.dopra-loader {
+    position: relative;
+    z-index: 5;
+    width: 520px;
+    padding: 55px;
+    border-radius: 24px;
+    background: rgb(15 25 45 / 72%);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgb(255 255 255 / 8%);
+    box-shadow: 0 30px 70px rgb(0 0 0 / 45%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* LOGO */
+
+.dopra-loader__logo {
+    font-size: 54px;
+    font-weight: 900;
+    letter-spacing: 10px;
+    color: rgb(255 255 255);
+    animation: logo-pulse 2s infinite;
+    text-shadow: 0 0 20px rgb(255 123 47 / 35%);
+}
+
+.dopra-loader__subtitle {
+    margin-top: 10px;
+    color: #9eb5da;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.dopra-loader__spinner {
+    margin: 40px 0 30px;
+}
+
+.load-message {
+    color: rgb(255 255 255);
+    font-size: 16px;
+    min-height: 22px;
+    animation: fade-message 0.5s;
+}
+
+/* PROGRESS */
+
+.loader-progress {
+    width: 100%;
+    height: 5px;
+    margin-top: 28px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgb(255 255 255 / 8%);
+}
+
+.loader-progress__bar {
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff7b2f, #4f8fff);
+    animation: progress 2.8s infinite;
+}
+
+/* STATUS */
+
+.loader-status {
+    width: 100%;
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    color: #8ca8d2;
+    font-size: 12px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: #35d07f;
+    animation: blink 1.2s infinite;
+}
+
+/* ANIMATIONS */
+
+@keyframes progress {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes float-orb {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-40px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes logo-pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes fade-message {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (width <= 768px) {
+    .dopra-loader {
+        width: 92%;
+        padding: 35px 25px;
+    }
+
+    .dopra-loader__logo {
+        font-size: 36px;
+        letter-spacing: 6px;
+    }
+
+    .loader-status {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
     }
 }

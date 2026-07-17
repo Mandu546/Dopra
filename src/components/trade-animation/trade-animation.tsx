@@ -135,14 +135,14 @@ const TradeAnimation = observer(({ className, should_show_overlay }: TTradeAnima
             return {
                 id: 'db-animation__stop-button',
                 class: 'animation__stop-button',
-                text: <Localize i18n_default_text='Stop' />,
+                text: <Localize i18n_default_text='Stop bot' />,
                 icon: <LabelPairedSquareLgFillIcon fill='#fff' />,
             };
         }
         return {
             id: 'db-animation__run-button',
             class: 'animation__run-button',
-            text: <Localize i18n_default_text='Run' />,
+            text: <Localize i18n_default_text='Run bot' />,
             icon: <LabelPairedPlayLgFillIcon fill='#fff' />,
         };
     }, [is_stop_button_visible]);
@@ -180,6 +180,10 @@ const TradeAnimation = observer(({ className, should_show_overlay }: TTradeAnima
             return 'left';
         }
     };
+
+    if (!is_bot_builder_tab) {
+        return null;
+    }
 
     return (
         <div className={classNames('animation__wrapper', className)}>
